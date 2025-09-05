@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.core.settings import settings
-from app.log_conf.loggering import setup_logging
+from app.observability.loggering import setup_logging
 from app.api import router as api_router
 
 setup_logging(
