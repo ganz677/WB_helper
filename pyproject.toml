@@ -17,6 +17,7 @@ dependencies = [
     "opentelemetry-sdk>=1.36.0",
     "prometheus-client>=0.22.1",
     "pytest>=8.4.2",
+    "pytest-asyncio>=1.1.0",
     "python-dotenv>=1.1.1",
     "python-json-logger>=3.3.0",
     "redis>=6.4.0",
