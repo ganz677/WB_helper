@@ -2,7 +2,7 @@ import os
 from typing import Literal
 from dotenv import load_dotenv
 
-from pydantic import BaseModel, PostgresDsn, model_validator
+from pydantic import BaseModel, PostgresDsn
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -40,17 +40,6 @@ class LLMSettings(BaseModel):
 
 class SentrySettings(BaseModel):
     dsn: str
-
-    @model_validator(mode="after")
-    def _normalize(self):
-        if self.dsn is None:
-            return self
-        s = str(self.dsn).strip()
-        if s in {"", "...", "null", "None"}:
-            self.dsn = None
-        else:
-            self.dsn = s
-        return self
 
 class MetrixSettings(BaseModel):
     otlp_endpoint: str
